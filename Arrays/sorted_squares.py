@@ -19,34 +19,31 @@
 
 # Follow up: Squaring each element and sorting the new array is very trivial, could you find an O(n) solution using a different approach?
 
-
-class Solution:
-    def sorted_squares(self, nums):
-        result = []
-        for num in nums:
-            result.append(num * num)
-        result.sort()
-        return result
-
-
 """
-class Solution:
-    def sorted_squares(self, nums: list[int]) -> list[int]:
-        n = len(nums)
-        result = [0] * n
-        left = 0
-        right = n - 1
-
-        for i in range(n - 1, -1, -1):
-            if abs(nums[left]) < abs(nums[right]):
-                square = nums[right]
-                right -= 1
-            else:
-                square = nums[left]
-                left += 1
-            result[i] = square * square
-        return result
+def sorted_squares(nums):
+    result = []
+    for num in nums:
+        result.append(num * num)
+    result.sort()
+    return result
 """
 
-solution = Solution()
-print(solution.sorted_squares([-4, -1, 0, 3, 10]))
+
+def sorted_squares(nums: list[int]) -> list[int]:
+    n = len(nums)
+    result = [0] * n
+    left = 0
+    right = n - 1
+
+    for i in range(n - 1, -1, -1):
+        if abs(nums[left]) < abs(nums[right]):
+            square = nums[right]
+            right -= 1
+        else:
+            square = nums[left]
+            left += 1
+        result[i] = square * square
+    return result
+
+
+print(sorted_squares([-4, -1, 0, 3, 10]))
