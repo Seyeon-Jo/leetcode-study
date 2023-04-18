@@ -8,13 +8,17 @@ namespace Part_I
         static void Main(string[] args)
         {
             //Q1
-            DisplayPersonalInfo();
+            // DisplayPersonalInfo();
             //====================================================================
 
             //Q2
+            // CalculateTuition();
+            // CalculateTuition();
             //====================================================================
 
             //Q3
+            CalculateAreaOfCircle();
+            CalculateAreaOfCircle();
             //====================================================================
 
             //Q4
@@ -43,7 +47,10 @@ namespace Part_I
         */
         public static void DisplayPersonalInfo()
         {
-            Console.WriteLine("Hello");
+            Console.WriteLine("Name: 세연");
+            Console.WriteLine("School: Centennial College");
+            Console.WriteLine("Program: Software Engineering Technology");
+            Console.WriteLine("Favorite course: Programming");
         }
         #endregion
 
@@ -54,18 +61,34 @@ namespace Part_I
         and then calculate and display the tuition cost. (cost = number of course * 569.99).
         Call the CalculateTuition() method two times from the same Main() method as in question 1.
         */
+        public static void CalculateTuition()
+        {
+            Console.Write("Enter the number of courses: ");
+            int numCourse = Convert.ToInt32(Console.ReadLine());
 
+            double cost = numCourse * 569.99;
+
+            Console.WriteLine($"The tuition cost is {cost:C}");
+        }
         #endregion
 
         #region Q3_CalculateAreaOfCircle
         /*
         Write a method call CalculateAreaOfCircle().
         This method will prompt the user for the radius of a circle
-        and then calculate and display the area.[A = πr2].
+        and then calculate and display the area.[A = πr^2].
         Call the CalculateAreaOfCircle() method twice from the same Main() method as in question 1.
         Use Math.Pi for the value of π
         */
+        public static void CalculateAreaOfCircle()
+        {
+            Console.Write("Enter the radius of a circle: ");
+            double radius = Convert.ToDouble(Console.ReadLine());
 
+            double area = Math.PI * radius * radius;
+
+            Console.WriteLine($"The area of a circle is {area}");
+        }
         #endregion
 
         #region Q4_CalculateAreaOfTriangle
@@ -109,7 +132,7 @@ namespace Part_I
         /*
         In a write a method called DisplayMenu() to display the following text on screen:
 
-        ===========Narendra’s Computer Systems================
+        ==================Computer Systems====================
         |       1. Display My Personal Information           |
         |       2. Calculate Tuition                         |
         |       3. Calculate Area Of A Circle                |
