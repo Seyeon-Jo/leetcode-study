@@ -17,23 +17,29 @@ namespace Part_I
             //====================================================================
 
             //Q3
-            CalculateAreaOfCircle();
-            CalculateAreaOfCircle();
+            // CalculateAreaOfCircle();
+            // CalculateAreaOfCircle();
             //====================================================================
 
             //Q4
+            // CalculateAreaOfTriangle();
+            // CalculateAreaOfTriangle();
             //====================================================================
 
             //Q5
+            // CalculateSaleCommission();
             //====================================================================
 
             //Q6
+            // DisplaySineTable();
             //====================================================================
 
             //Q7
+            // DisplayMenu();
             //====================================================================
 
             //Q8
+            ShowMenu();
             //====================================================================
         }
 
@@ -97,7 +103,17 @@ namespace Part_I
         and then calculate and display the area.[ A = bt/2 ]
         Call the CalculateAreaOfTriangle() method twice from the same Main() method as in question 1.
         */
+        public static void CalculateAreaOfTriangle()
+        {
+            Console.Write("Enter the base of a triangle: ");
+            double baseT = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the height of a triangle: ");
+            double height = Convert.ToDouble(Console.ReadLine());
 
+            double area = (baseT * height) / 2;
+
+            Console.WriteLine($"The area of a triangle is {area}");
+        }
         #endregion
 
         #region Q5_CalculateSaleCommission
@@ -106,7 +122,20 @@ namespace Part_I
         and then calculate and display his commission. (commission = 25% of sales in excess of 1000. If sales is equal to or below $1000.00 there is no commission)
         Call the CalculateSaleCommission() method three times from the same Main() method as in question 1.
         */
+        public static void CalculateSaleCommission()
+        {
+            Console.Write("Enter the sales figure: ");
+            double salesFigure = Convert.ToDouble(Console.ReadLine());
 
+            double commission = 0;
+
+            if (salesFigure > 1000)
+            {
+                commission = (salesFigure - 1000) * 0.25;
+            }
+
+            Console.WriteLine($"The commission of sales figure is {commission}");
+        }
         #endregion
 
         #region Q6_DisplaySineTable
@@ -125,7 +154,26 @@ namespace Part_I
         The numbers in both columns MUST be right aligned.
         Call the DisplaySineTable() method from the same Main() method as in question 1.
         */
+        public static void DisplaySineTable()
+        {
+            Console.Write("Enter the starting value: ");
+            double start = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the step size: ");
+            double step = Convert.ToDouble(Console.ReadLine());
 
+            Console.WriteLine("");
+            Console.WriteLine(" Input | Sine Value ");    
+            Console.WriteLine("====================");
+
+            for (int i = 0; i < 10; i ++)
+            {
+                double sin = Math.Sin(start);
+
+                Console.WriteLine($"{start,6:F2} | {sin,10:F4}");
+
+                start += step;
+            }
+        }
         #endregion
 
         #region Q7_DisplayMenu
@@ -142,11 +190,24 @@ namespace Part_I
         |       0. End program                               |
         |                                                    |
         ======================================================
-                    Enter the number of your choice ->
+                Enter the number of your choice ->
 
         You may replace the instructor’s name with your name.
         */
-
+        public static void DisplayMenu()
+        {
+            Console.WriteLine("================== Computer Systems ==================");
+            Console.WriteLine("|       1. Display My Personal Information           |");
+            Console.WriteLine("|       2. Calculate Tuition                         |");
+            Console.WriteLine("|       3. Calculate Area Of A Circle                |");
+            Console.WriteLine("|       4. Calculate the Area Of A Triangle          |");
+            Console.WriteLine("|       5. Calculate Sales Commission                |");
+            Console.WriteLine("|       6. Display Sine Table                        |");
+            Console.WriteLine("|       0. End program                               |");
+            Console.WriteLine("|                                                    |");
+            Console.WriteLine("======================================================");
+            Console.Write("Enter the number of your choice: ");
+        }
         #endregion
 
         #region Q8_ShowMenu
@@ -157,7 +218,45 @@ namespace Part_I
         You will need to hook up all the methods that you wrote previously (i.e. questions 1 to 6).
         Replace all the code from your Main() method with a single call to the ShowMenu() method.
         */
+        public static void ShowMenu()
+        {
+            int inputNum;
+            do
+            {
+                DisplayMenu();
+                inputNum = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(" ");
 
+                switch (inputNum)
+                {
+                    case 1:
+                        DisplayPersonalInfo();
+                        break;
+                    case 2:
+                        CalculateTuition();
+                        break;
+                    case 3:
+                        CalculateAreaOfCircle();
+                        break;
+                    case 4:
+                        CalculateAreaOfTriangle();
+                        break;
+                    case 5:
+                        CalculateSaleCommission();
+                        break;
+                    case 6:
+                        DisplaySineTable();
+                        break;
+                    case 0:
+                        Console.WriteLine("End");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid");
+                        break;
+                } 
+                Console.WriteLine(" ");
+            } while (inputNum != 0);
+        }
         #endregion
     }
 }
