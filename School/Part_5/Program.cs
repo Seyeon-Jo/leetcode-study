@@ -49,9 +49,23 @@ namespace Part_V
             //====================================================================
 
             //Q5
+            /*
+            In your main method, create an int array using the GenerateRandomIntArray() method and then print out the elements using the DisplayIntArray() method.
+            Call the above method and display the return value. Do a count to verify that your method is working correctly.
+            */
+            // int[] randomArr = GenerateRandomIntArray(10, 100);
+            // DisplayIntArray(randomArr);
+            // Console.WriteLine(" ");
+            // int[] countArr = CalculateLastDigitFrequencies(randomArr);
+            // DisplayIntArray(countArr);
             //====================================================================
 
             //Q6
+            // int[] randomArr = GenerateRandomIntArray(10, 99);
+            // DisplayIntArray(randomArr);
+            // Console.WriteLine(" ");
+            // int[] countArr = CalculateNumberFrequencies(randomArr);
+            // DisplayIntArray(countArr);
             //====================================================================
         }
 
@@ -165,10 +179,21 @@ namespace Part_V
         The first element of the returned array represents the number with last digit of 0’s in the argument, the second element indicates the number with last digit of 1’s in the argument and the third element will indicate the number with last digit of 2’s in the argument.
         The method will create an int array of 10 elements (call this the result).
         Each item of the argument is examined and the appropriate element of the result array is incremented. 
+
         In your main method, create an int array using the GenerateRandomIntArray() method and then print out the elements using the DisplayIntArray() method.
         Call the above method and display the return value. Do a count to verify that your method is working correctly.
         */
+        public static int[] CalculateLastDigitFrequencies(int[] array)
+        {
+            int[] result = new int[10];
 
+            foreach (int num in array)
+            {
+                int lastDigit = num % 10;
+                result[lastDigit]++;
+            }
+            return result;
+        }
         #endregion
 
         #region Q6_CalculateNumberFrequencies
@@ -179,10 +204,21 @@ namespace Part_V
         The first element will indicate the number or unit values in the argument (i.e. values 0-9), the second element will indicate the number of 10 values (i.e. values 10-19), the third element will indicate the number of 20 values (i.e. values 20-29) etc.
         The method will create an int array of 10 elements (call this the result).
         Each item of the argument is examined and the appropriate element of the result array is incremented.
+
         In your main method, create an int array using the GenerateRandomIntArray() method and then print out the elements using the DisplayIntArray() method.
         Call the above method and display the return value. Do a count to verify that your method is working correctly.
         */
+        public static int[] CalculateNumberFrequencies(int[] array)
+        {
+            int[] result = new int[10];
 
+            foreach (int num in array)
+            {
+                int numValue = num / 10;
+                result[numValue]++;
+            }
+            return result;
+        }
         #endregion
     }
 }
