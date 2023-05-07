@@ -22,3 +22,13 @@ Constraints:
 1 <= nums.length <= 5000
 0 <= nums[i] <= 5000
 """
+
+
+def sortArrayByParity(nums: list[int]) -> list[int]:
+    nums.sort(key=lambda x: x % 2)
+    return nums
+
+
+nums = [3, 1, 2, 4]
+sorted_nums = sortArrayByParity(nums)
+print(sorted_nums)
