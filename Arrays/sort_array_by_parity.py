@@ -21,11 +21,29 @@ Constraints:
 
 1 <= nums.length <= 5000
 0 <= nums[i] <= 5000
-"""
+
 
 
 def sortArrayByParity(nums: list[int]) -> list[int]:
     nums.sort(key=lambda x: x % 2)
+    return nums
+
+
+
+def sortArrayByParity(nums: list[int]) -> list[int]:
+    return [x for x in nums if x % 2 == 0] + [x for x in nums if x % 2 == 1]
+"""
+
+
+def sortArrayByParity(nums: list[int]) -> list[int]:
+    i, j = 0, len(nums) - 1
+    while i < j:
+        if nums[i] % 2 > nums[j] % 2:
+            nums[i], nums[j] = nums[j], nums[i]
+        if nums[i] % 2 == 0:
+            i += 1
+        if nums[j] % 2 == 1:
+            j -= 1
     return nums
 
 
